@@ -1,25 +1,20 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
 
-function App() {
-  return (
+function App(){
+  const [countNo,setCount] = useState(0) 
+
+
+  return(
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Counter app using state</h1>
+      <hr/>
+      <h2>Current Count {countNo}</h2>
+      <button onClick={() => (countNo <= 0 ? "" : setCount(countNo - 1))}>Decrease Value</button>
+      <button onClick={() => setCount(0)}>Reset Value</button>
+      <button onClick={() => (countNo >= 10 ? "" : setCount(countNo + 1))}>Increase Value</button>
     </div>
-  );
+  )
 }
 
 export default App;
